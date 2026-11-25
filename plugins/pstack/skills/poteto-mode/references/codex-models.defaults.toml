@@ -1,0 +1,23 @@
+# Strict user-approved PStack model policy. No other pairs may be used.
+# Role values are starting preferences; classify each actual work slice.
+policy = "complexity-first"
+default = "terra"
+orchestrator = "sol"
+
+[profiles]
+luna = { model = "gpt-6-luna", reasoning_effort = "high", agent_type = "poteto-luna" }
+terra = { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }
+sol = { model = "gpt-6.2-sol", reasoning_effort = "medium", agent_type = "poteto-sol" }
+
+[roles]
+"feature, refactoring" = { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }
+"bug-fix" = { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }
+"perf-issue" = { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }
+"hillclimb" = { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }
+"hardest tasks" = { model = "gpt-6.2-sol", reasoning_effort = "medium", agent_type = "poteto-sol" }
+"judgment and prose" = { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }
+"mechanical edits" = { model = "gpt-6-luna", reasoning_effort = "high", agent_type = "poteto-luna" }
+"arena runners" = [ { model = "gpt-6-luna", reasoning_effort = "high", agent_type = "poteto-luna" }, { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }, { model = "gpt-6.2-sol", reasoning_effort = "medium", agent_type = "poteto-sol" } ]
+"arena cross-judge pool" = [ { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }, { model = "gpt-6.2-sol", reasoning_effort = "medium", agent_type = "poteto-sol" }, { model = "gpt-6-luna", reasoning_effort = "high", agent_type = "poteto-luna" } ]
+"swarm workers" = { model = "gpt-6-luna", reasoning_effort = "high", agent_type = "poteto-luna" }
+"interrogate reviewers" = [ { model = "gpt-6-luna", reasoning_effort = "high", agent_type = "poteto-luna" }, { model = "gpt-6.1-terra", reasoning_effort = "medium", agent_type = "poteto-terra" }, { model = "gpt-6.2-sol", reasoning_effort = "medium", agent_type = "poteto-sol" } ]
