@@ -1,13 +1,28 @@
-# Static validation — PASS
+# PStack validation
 
-- All 62 skill directories present (59 core + 3 team-kit dependencies).
-- All 519 original skill files accounted for and verified by SHA-256: 438 byte-identical, 81 adapted.
-- All 62 YAML skill frontmatters parsed; names match folder names; original explicit-only invocation flags preserved in Codex metadata.
-- All 22 playbooks and 24 principle skills present.
-- Native marketplace path resolves to the plugin; both manifests parse and agree on identity/version.
-- Three custom agent TOMLs and model policy parse and match the exclusive allowlist; every role entry validated; mandatory Sol Medium orchestrator verified in the configuration and instructions.
-- Bash syntax checks passed for the two shell scripts; the watch-pr launcher has a Bun shebang and executable permissions (Bun is unavailable, so its runtime was not tested). No downloaded scripts were executed.
-- Original non-Markdown resources unchanged apart from the documented worktree-audit shell adaptation.
-- Residual lexical references recorded in host-review.txt (including historical webhook references).
+## Release codex.3 — operator-reported runtime evidence (2026-11-25)
 
-Not tested: live Codex plugin discovery, installation, subagent spawn/model entitlement, host-specific workflow behavior, upstream TypeScript runtime tests (Bun is not installed here). This is a static validation, not a claim that the runtime integration is proven.
+The operator reported a fresh Codex CLI 0.172.0 end-to-end test. This is a record of their reported evidence, not an independently reproduced live test in this packaging environment.
+
+| Check | Reported result | Evidence |
+|---|---|---|
+| Orchestrator | PASS | Parent turn_context: gpt-6.2-sol / medium |
+| Skill discovery | PASS | 62 enabled, zero load errors |
+| Supporting resources | FAIL | 58 skill-tree relative links resolved; installed README escaped the package and eight historical documentation links failed |
+| Named-role discovery (fresh CLI) | PASS | Three shipped TOMLs byte-matched; agent_type exposed all roles |
+| Named-role selection (active API session) | FAIL / host limitation | Schema had no agent_type; explicit approved model/effort pairs worked |
+| Swarm | PASS | Two independent Luna/high workers completed |
+| Interrogate | PASS | Three independent approved-profile reviewers completed |
+| Delegation, routing and collection | PASS | Eight active-session workers and three fresh CLI workers completed with approved turn_context pairs |
+
+Fresh CLI named-role workers confirmed Luna/high, Terra/medium and Sol/medium in actual child session records; each read-only command exited successfully. The worktree reportedly remained clean.
+
+## Release codex.4 — static package checks
+
+- 62 skills, 22 playbooks, 24 principles and the three unchanged model profiles.
+- All 519 upstream skill files tracked by SHA-256: 438 byte-identical, 81 adapted.
+- Installed validation report included within the plugin boundary; eight historical links repaired with bundled reference documents. All 319 relative Markdown links in an isolated copy of the plugin resolved inside the package.
+- Named-role and exact-pair instructions use the same pinned allowlist; missing capabilities are explicitly reported.
+- Both plugin manifests agree on the new version. Agent TOMLs, model policy, playbooks and principles are unchanged from codex.3.
+
+The codex.4 static checks do not establish live installation or execution of this revised package. Reinstall/update and repeat the relevant smoke checks in a real CLI and API session. Arena, actual feature delivery, and every optional upstream workflow were not established by the reported smoke test. Cursor-only unattended automation and cross-vendor diversity remain compatibility limits.

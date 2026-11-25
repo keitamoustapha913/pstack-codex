@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pstack",
-  "version": "0.15.48-codex.3",
+  "version": "0.15.48-codex.4",
   "description": "Unofficial Codex port of Poteto PStack: original engineering workflows with Sol Medium orchestration and Terra Medium / Luna High delegates.",
   "author": {
     "name": "Lauren Tan (original PStack); unofficial Codex port"

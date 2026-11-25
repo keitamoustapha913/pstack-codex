@@ -9,7 +9,7 @@ description: poteto's agent style for concise, detailed responses, deliberate su
 
 Bundled skills live at `../<name>/SKILL.md` from this file, so put this file's absolute path in every normal PStack delegate prompt.
 
-**Orchestrator preflight:** Before taking any playbook action, confirm the parent is `gpt-6.2-sol` at `medium` and the approved worker roles are available, following the host adapter. A skill cannot change its own model. Stop if Sol Medium is unavailable or unconfirmed. A delegated worker reading this file for its assigned role is not the parent and must retain its own approved fixed profile.
+**Orchestrator preflight:** Before taking any playbook action, confirm the parent is `gpt-6.2-sol` at `medium` and the approved worker profiles can be selected using one of the host adapter’s supported delegation paths. A skill cannot change its own model. Stop if Sol Medium is unavailable or unconfirmed. A delegated worker reading this file for its assigned role is not the parent and must retain its own approved fixed profile.
 
 ## Non-negotiables
 
@@ -84,7 +84,7 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 
 ## Subagents
 
-The parent receiving `$poteto-mode` owns the playbook. Read the host adapter and its `codex-models.toml` before doing PStack work or spawning any child. The parent must use GPT-6.2 Sol (`gpt-6.2-sol`) at `medium`. Verify the pair or obtain operator confirmation before running the playbook or spawning workers. If different, request a client-side switch; if unavailable or unconfirmed, stop. Never substitute Terra or Luna for orchestration. Use the corresponding pinned custom role `poteto-luna`, `poteto-terra`, or `poteto-sol` for delegates. Follow the actual Codex tool schema.
+The parent receiving `$poteto-mode` owns the playbook. Read the host adapter and its `codex-models.toml` before doing PStack work or spawning any child. The parent must use GPT-6.2 Sol (`gpt-6.2-sol`) at `medium`. Verify the pair or obtain operator confirmation before running the playbook or spawning workers. If different, request a client-side switch; if unavailable or unconfirmed, stop. Never substitute Terra or Luna for orchestration. Use the corresponding pinned profile for delegates: select `poteto-luna`, `poteto-terra`, or `poteto-sol` when the actual Codex tool schema supports named-role selection, otherwise use the exact approved model and effort via the adapter’s explicit-pair path. Never rely on implicit inheritance. Follow the live schema and report which path was used.
 
 Delegate asynchronously within the active session, giving each worker a standalone brief, absolute paths to the worker and skill instructions when applicable, and an isolated writable output where needed. Use a fresh context for independent work and do not expose blind evaluation material. Respect approval and sandbox restrictions. Classify each work slice independently: Luna/high for clear bounded tasks; Terra/medium for ordinary feature implementation, bug fixes and refactoring; Sol/medium for delegated work only when genuinely complex reasoning is required. Escalate only when evidence justifies it, not because of the playbook name. Reasoning effort is fixed for each model; never raise or lower it. On delegate rejection, use only an adequate approved profile with its fixed effort and disclose the change, or report the blocker. Never use implicit inheritance or retry a known-invalid choice.
 

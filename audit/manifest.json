@@ -255,7 +255,7 @@
       "path": "plugins/pstack/skills/poteto-mode/SKILL.md",
       "source": "pstack/skills/poteto-mode/SKILL.md",
       "upstream_sha256": "7aa026dc1fad7db0ea1ff39171e6b768ee99d03a7f46d0b9cd38973511251d81",
-      "ported_sha256": "d13d551080960a62da738876a6c01b31f1fc1be99261e63368ddbb24106c7783",
+      "ported_sha256": "afe4861f538f5dcaa4faf94c845cd2dc4a7c99f63435d8d446808adf0ff10e21",
       "changed": true
     },
     {
@@ -731,7 +731,7 @@
       "path": "plugins/pstack/skills/setup-pstack/SKILL.md",
       "source": "pstack/skills/setup-pstack/SKILL.md",
       "upstream_sha256": "9347e6a17d41c92fd9d57e689c63d81defbd63df18dbcd5e9858ab03de5994ea",
-      "ported_sha256": "2468b712488a48b9d888c3a7c22d9d983559d410a73d2497687a70bbff43035e",
+      "ported_sha256": "7338e694cd28a06eba1b3f90bde08df6243934a89e84f963f982c2cd3b6e1399",
       "changed": true
     },
     {

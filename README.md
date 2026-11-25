@@ -1,6 +1,6 @@
 # PStack for Codex
 
-Unofficial, source-based Codex port of [Poteto PStack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan. Upstream 0.15.48; port 0.15.48-codex.3. MIT licensed. This repository contains the actual converted skill files, not a converter, generator or dependency on the upstream repository at installation time.
+Unofficial, source-based Codex port of [Poteto PStack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan. Upstream 0.15.48; port 0.15.48-codex.4. MIT licensed. This repository contains the actual converted skill files, not a converter, generator or dependency on the upstream repository at installation time.
 
 **Source:** uploaded GitHub archive of `cursor/plugins`, revision recorded in `audit/manifest.json` as `41e400932eca14f289e7db717a70455256b6d388`. The archive's ZIP comment supplies that revision; its authenticity was not independently verified against GitHub.
 
@@ -29,7 +29,7 @@ Use the Plugins Directory to install the plugin. Private repositories require ap
 
 ### One-time setup (required)
 
-Start a Sol Medium Codex session, select the installed `setup-pstack` skill with the `$` skill picker, and approve registration of the three shipped custom agent TOMLs. These definitions are bundled at `plugins/pstack/agents/` but are not automatically registered merely because they are in a plugin. Setup copies only the three approved files to `$CODEX_HOME/agents/` (normally `~/.codex/agents/`) or `<project>/.codex/agents/` with your permission. It validates the exact models, efforts and active role definitions, and preserves the original optional verification-skill setup. Restart Codex if agent discovery requires it. A conflicting existing file or unavailable role is a blocker, not a silent overwrite or model substitution.
+Start a Sol Medium Codex session, select the installed `setup-pstack` skill with the `$` skill picker, and approve registration of the three shipped custom agent TOMLs. These definitions are bundled at `plugins/pstack/agents/` but are not automatically registered merely because they are in a plugin. Setup copies only the three approved files to `$CODEX_HOME/agents/` (normally `~/.codex/agents/`) or `<project>/.codex/agents/` with your permission. It validates the exact models, efforts and active role definitions, and preserves the original optional verification-skill setup. Restart Codex if agent discovery requires it. A conflicting existing file requires resolution. Where the runtime lacks a named-role selector, the host adapter permits explicit selection of an exact approved model/effort pair, with the applicable role instructions. If neither method is supported, delegation is blocked.
 
 If you prefer manual registration, copy the three TOMLs into the chosen agents directory only after checking for conflicts, then run `$setup-pstack` to validate. Nothing else needs to be installed to discover these skills. Individual verification workflows may require project-specific runtimes, credentials, browsers, `gh`, `git`, Bun, or other tools.
 
@@ -57,7 +57,7 @@ Select `$poteto-help` for help. The entry point reads the upstream playbook, sel
 | poteto-terra | gpt-6.1-terra | medium | Default worker for ordinary engineering, feature implementation and focused integration |
 | poteto-luna | gpt-6-luna | high | Simple features, bounded work, exploration, tests and parallel checks |
 
-No other models or reasoning levels. Choose the least intensive adequate approved worker for each slice. Escalate when evidence warrants it; de-escalate when the complex part is resolved. Keep all original review and proof requirements. Cross-vendor panels become independent OpenAI-only panels, with the reduction in diversity disclosed.
+No other models or reasoning levels. Named-role and explicit-pair delegation use the same allowlist; the latter is a compatibility path, not a model substitution. Choose the least intensive adequate approved worker for each slice. Escalate when evidence warrants it; de-escalate when the complex part is resolved. Keep all original review and proof requirements. Cross-vendor panels become independent OpenAI-only panels, with the reduction in diversity disclosed.
 
 ## Contents
 
@@ -75,6 +75,6 @@ Cursor's `Task`, Project worker, custom mode, model slugs, and `/loop` are not a
 
 The upstream worktree audit script was minimally changed so it never scans Cursor transcripts by default; an explicitly authorized workspace-scoped transcript export is required to classify chat recency, otherwise it reports unknown and flags candidates for review. The rest of the original non-Markdown skill resources are byte-identical. The port respects host approvals and sandbox restrictions and does not widen permissions.
 
-**Validation status:** actual uploaded source converted and packaged; static file completeness, metadata, model policy, audit hashes, and shell syntax checked. Live installation, model entitlement, actual subagent execution, and end-to-end workflows have not been tested in a running Codex client in this environment. Review `audit/VALIDATION.md` and run `$setup-pstack` before use.
+**Validation status:** static package checks passed. The operator reported successful live CLI validation of release codex.3 (Codex CLI 0.172.0), including all three named roles, exact runtime pairs, Swarm and Interrogate. The active API session used explicit approved pairs because its schema lacks a named-role selector. This maintenance release addresses packaging and schema-selection instructions; it has not been independently executed in live Codex. See the [validation report](audit/VALIDATION.md) and run `$setup-pstack` before use.
 
 Docs: [OpenAI plugin packaging](https://developers.openai.com/plugins/build/plugins), [Codex skill authoring](https://learn.chatgpt.com/docs/build-skills), [Codex custom agents](https://learn.chatgpt.com/docs/agent-configuration/subagents).
